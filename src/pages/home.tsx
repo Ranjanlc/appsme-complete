@@ -88,15 +88,22 @@ const HomePage = () => {
       <div className="w-full flex justify-center mt-16">
         <footer className="flex gap-32">
           <section className="flex flex-col gap-8 justify-center items-center">
-            <img src="/image/home-1.png" className="w-[60px] h-[60px]" />
+            <div className="w-[120px] h-[120px] rounded-full bg-gray-100 flex justify-center items-center">
+              <img src="/image/home-1.png" className="w-[60px] h-[60px]" />
+            </div>
             <span className="font-bold">Pasja do tego, co robimy</span>
           </section>
           <section className="flex flex-col gap-8 justify-center items-center">
-            <img src="/image/home-1.png" className="w-[60px] h-[60px]" />
+            <div className="w-[120px] h-[120px] rounded-full bg-gray-100 flex justify-center items-center">
+              <img src="/image/home-1.png" className="w-[60px] h-[60px]" />
+            </div>
+
             <span className="font-bold">Zaufanie i bezpieczenstwo</span>
           </section>
           <section className="flex flex-col gap-8 justify-center items-center">
-            <img src="/image/home-1.png" className="w-[60px] h-[60px]" />
+            <div className="w-[120px] h-[120px] rounded-full bg-gray-100 flex justify-center items-center">
+              <img src="/image/home-1.png" className="w-[60px] h-[60px]" />
+            </div>
             <span className="font-bold">Pasja do tego, co robimy</span>
           </section>
         </footer>
