@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { Link } from "gatsby";
 import styled, { css } from "styled-components";
+import { HiChevronDown } from "react-icons/hi2";
 
 const NavContainer = styled.nav`
   display: flex;
@@ -69,6 +70,14 @@ interface NavigationProps {
 }
 
 const Navigation = (props: NavigationProps) => {
+  const [showFlag, setShowFlag] = React.useState(false);
+  const [curFlag, setCurFlag] = React.useState("english");
+  const toggleFlag = () => {
+    setShowFlag((show) => !show);
+  };
+  const flagClick = (flag: string) => {
+    setCurFlag(flag);
+  };
   if (props.mobile) {
     return (
       <NavContainer>
@@ -76,15 +85,61 @@ const Navigation = (props: NavigationProps) => {
         <MobileNavLink to="/who-we-are">Kim jesteśmy</MobileNavLink>
         <MobileNavLink to="/what-we-do">Zrealizowane projekty</MobileNavLink>
         <MobileNavLink to="/contact">Kontakt</MobileNavLink>
+        <div className="flex relative items-center gap-2" onClick={toggleFlag}>
+          <img src={`/image/${curFlag}.png`} className="w-5 h-5" />
+          <HiChevronDown />
+          {showFlag && (
+            <div className="absolute top-10 gap-4 flex flex-col">
+              <img
+                src="/image/english.png"
+                onClick={flagClick.bind(null, "english")}
+                className="w-5 h-5"
+              />
+              <img
+                src="/image/poland.png"
+                onClick={flagClick.bind(null, "poland")}
+                className="w-5 h-5"
+              />
+              <img
+                src="/image/german.png"
+                onClick={flagClick.bind(null, "german")}
+                className="w-5 h-5"
+              />
+            </div>
+          )}
+        </div>
       </NavContainer>
     );
   } else {
     return (
-      <nav>
+      <nav className="flex ">
         <DesktopNavLink to="/">Co robimy</DesktopNavLink>
         <DesktopNavLink to="/who-we-are">Kim jesteśmy</DesktopNavLink>
         <DesktopNavLink to="/what-we-do">Zrealizowane projekty</DesktopNavLink>
         <DesktopNavLink to="/contact">Kontakt</DesktopNavLink>
+        <div className="flex relative items-center gap-2" onClick={toggleFlag}>
+          <img src={`/image/${curFlag}.png`} className="w-5 h-5" />
+          <HiChevronDown />
+          {showFlag && (
+            <div className="absolute top-10 gap-4 flex flex-col">
+              <img
+                src="/image/english.png"
+                onClick={flagClick.bind(null, "english")}
+                className="w-5 h-5"
+              />
+              <img
+                src="/image/poland.png"
+                onClick={flagClick.bind(null, "poland")}
+                className="w-5 h-5"
+              />
+              <img
+                src="/image/german.png"
+                onClick={flagClick.bind(null, "german")}
+                className="w-5 h-5"
+              />
+            </div>
+          )}
+        </div>
       </nav>
     );
   }

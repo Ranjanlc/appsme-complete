@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Theme, BaseBanner } from "@components/layout";
 import { ResolutionType, useWindowResolutionType } from "@hooks";
@@ -10,8 +10,42 @@ import {
 } from "../components/layout/header/base-banner/base-baner.styles";
 import Card from "./Card";
 
+const DATA = [
+  {
+    id: "1",
+    text: "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.",
+    title: "Rozmowa z Klientem",
+  },
+  {
+    id: "2",
+    text: "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.",
+    title: "Rozmowa z Klientem",
+  },
+  {
+    id: "3",
+    text: "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.",
+    title: "Rozmowa z Klientem",
+  },
+  {
+    id: "4",
+    text: "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.",
+    title: "Rozmowa z Klientem",
+  },
+  {
+    id: "5",
+    text: "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.",
+    title: "Rozmowa z Klientem",
+  },
+  {
+    id: "6",
+    text: "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.",
+    title: "Rozmowa z Klientem",
+  },
+];
+
 const WhoWeArePage = () => {
   const resolutionType: ResolutionType = useWindowResolutionType();
+  const [curService, setCurService] = useState("1");
 
   return (
     <Theme>
@@ -181,6 +215,39 @@ const WhoWeArePage = () => {
           title="Azure"
         ></Card>
       </main>
+      <header className="text-center font-semibold text-blue-700 mt-16 mb-6">
+        JAK DZIAŁAMY
+      </header>
+      <h1 className="text-center text-4xl mb-20">
+        Przebieg realizacji projektu krok po kroku
+      </h1>
+      <article className="flex justify-between w-full items-center gap-6 md:flex-col xl:flex-row">
+        <section className="flex flex-col md:flex-row md:justify-around md:w-full gap-6">
+          {Array(6)
+            .fill()
+            .map((el, i) => (
+              <article
+                className={`flex flex-col pr-2 gap-2 ${
+                  curService === `${i + 1}`
+                    ? "border-r-4 md:border-r-0 md:border-b-4 border-blue-500"
+                    : ""
+                }`}
+                onClick={() => {
+                  setCurService(`${i + 1}`);
+                }}
+              >
+                <img src={`/image/krok/${i + 1}.png`} />
+                <span>Krok {i + 1}</span>
+              </article>
+            ))}
+        </section>
+        <section className="flex flex-col gap-3 bg-blue-600 text-white p-2 max-w-[450px] md:h-[200px] md:p-8 justify-center ">
+          <h3>
+            {curService}. {DATA.find((el) => el.id === curService)?.title}
+          </h3>
+          <p>{DATA.find((el) => el.id === curService)?.text}</p>
+        </section>
+      </article>
     </Theme>
   );
 };

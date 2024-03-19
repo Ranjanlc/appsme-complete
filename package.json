@@ -18,6 +18,8 @@
   "dependencies": {
     "@brainhubeu/react-carousel": "^2.0.4",
     "@fontsource/sen": "^4.5.0",
+    "@types/react-slick": "^0.23.13",
+    "@types/slick-carousel": "^1.6.40",
     "babel-plugin-styled-components": "^1.13.2",
     "formik": "^2.2.9",
     "gatsby": "^3.10.1",
@@ -35,8 +37,12 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-icons": "^5.0.1",
+    "react-responsive-carousel": "^3.2.23",
+    "react-slick": "^0.30.2",
     "sass": "^1.42.1",
     "sharp": "^0.28.3",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.1",
     "yup": "^0.32.11"
   },
