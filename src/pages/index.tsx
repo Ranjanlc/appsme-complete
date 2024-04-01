@@ -10,7 +10,6 @@ import {
 } from "@components/layout";
 import { ResolutionType, useWindowResolutionType } from "@hooks";
 import Review from "../components/home/Review";
-
 const IndexPage = () => {
   const resolutionType: ResolutionType = useWindowResolutionType();
 

@@ -28,14 +28,15 @@ export default function Card({
         <>
           <section className="flex gap-4 items-center  pl-4 ">
             <img src={img} className="w-[60px] h-[60px]" />
-            <h3 className="font-bold text-gray-700">{title}</h3>
+            <h3 className="font-bold text-white">{title}</h3>
           </section>
-          <section className="text-gray-700 pl-4">{p}</section>
+          <section className="text-white pl-4">{p}</section>
         </>
       )}
       {!isHovered && (
-        <div className="flex justify-center items-center h-[200px]">
+        <div className="flex justify-center items-center h-[200px] gap-10">
           <img src={img} className="w-[60px] h-[60px]" />
+          <h3 className="font-bold text-black">{title}</h3>
         </div>
       )}
     </div>
